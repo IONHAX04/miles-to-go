@@ -1,0 +1,699 @@
+/* About Us page — layout aligned to Luxivo-style template, Miles to Go theme */
+
+.about-page {
+  background: #ffffff;
+  color: var(--mtg-ink);
+}
+
+.about-hero {
+  position: relative;
+  min-height: min(52vh, 420px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: clamp(72px, 12vw, 120px) 20px;
+  color: #fff;
+}
+
+.about-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: #0a0c0e center / cover no-repeat;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 26, 38, 0.55) 0%,
+    rgba(8, 26, 38, 0.78) 100%
+  );
+}
+
+.about-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.about-hero__title {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.about-hero__crumb {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.about-hero__crumb a {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+}
+
+.about-hero__crumb a:hover {
+  text-decoration: underline;
+}
+
+.about-hero__sep {
+  margin: 0 0.35em;
+  opacity: 0.65;
+}
+
+.about-intro {
+  padding: clamp(72px, 10vw, 112px) 20px;
+  background: #ffffff;
+}
+
+.about-intro__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.about-intro__title {
+  margin: 0 0 clamp(22px, 3.5vw, 32px);
+  max-width: 34rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: #1a202c;
+}
+
+.about-intro__body {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.about-intro__copy {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #555555;
+}
+
+.about-intro__signature {
+  margin: clamp(32px, 5vw, 44px) 0 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mtg-primary);
+}
+
+.about-triple {
+  padding: 0 0 clamp(56px, 8vw, 88px);
+  background: #ffffff;
+}
+
+.about-triple__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.about-triple__cell {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 12px 36px rgba(8, 14, 20, 0.08);
+}
+
+.about-triple__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-services {
+  padding: clamp(56px, 8vw, 88px) 0;
+  background: #f4f8fb;
+  border-top: 1px solid var(--mtg-border);
+}
+
+.about-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+  text-align: center;
+}
+
+.about-services__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(20, 80, 114, 0.2);
+  color: var(--mtg-primary);
+  background: #ffffff;
+}
+
+.about-services__icon svg {
+  flex-shrink: 0;
+}
+
+.about-services__name {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2a33;
+}
+
+.about-services__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--mtg-muted);
+}
+
+.about-comfort {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: #ffffff;
+}
+
+.about-comfort__grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+}
+
+.about-comfort__eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mtg-primary);
+}
+
+.about-comfort__title {
+  margin: 0 0 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1f2a33;
+}
+
+.about-comfort__lead {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--mtg-muted);
+}
+
+.about-comfort__list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-comfort__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a3844;
+}
+
+.about-comfort__check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--mtg-primary);
+}
+
+.about-comfort__media {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(8, 14, 20, 0.12);
+}
+
+.about-comfort__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  object-fit: cover;
+}
+
+.about-featured {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: #f7f9fb;
+  border-top: 1px solid #e6edf2;
+}
+
+.about-featured__head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-featured__title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 600;
+  color: #1f2a33;
+}
+
+.about-featured__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.about-featured__card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  min-height: 260px;
+  box-shadow: 0 12px 32px rgba(8, 14, 20, 0.08);
+}
+
+.about-featured__card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-featured__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(8, 26, 38, 0.88) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  gap: 10px;
+}
+
+.about-featured__name {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.about-featured__btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--mtg-dark);
+  background: #ffffff;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.about-featured__btn:hover {
+  background: var(--mtg-accent);
+  color: var(--mtg-dark);
+}
+
+.about-stats {
+  background: var(--mtg-dark);
+  color: #e8f2f8;
+  padding: clamp(40px, 6vw, 56px) 0;
+}
+
+.about-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.about-stats__value {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.about-stats__label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(200, 217, 228, 0.88);
+}
+
+.about-contact-split {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: #ffffff;
+}
+
+.about-contact-split__wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 440px);
+  gap: 0;
+  align-items: stretch;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 56px rgba(8, 14, 20, 0.1);
+}
+
+.about-contact-split__photo {
+  position: relative;
+  min-height: 420px;
+}
+
+.about-contact-split__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-contact-split__panel {
+  background: #ffffff;
+  padding: clamp(28px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-contact-split__panel h2 {
+  margin: 0 0 10px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1f2a33;
+}
+
+.about-contact-split__panel > p {
+  margin: 0 0 22px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--mtg-muted);
+}
+
+.about-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-contact-form input,
+.about-contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid #d5e0e8;
+  border-radius: 10px;
+  background: #fafcfd;
+  color: var(--mtg-ink);
+}
+
+.about-contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.about-contact-form button {
+  margin-top: 6px;
+  width: 100%;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.about-blog {
+  padding: clamp(56px, 8vw, 88px) 0;
+  background: #f4f8fb;
+  border-top: 1px solid var(--mtg-border);
+}
+
+.about-blog__head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.about-blog__head h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  font-weight: 600;
+  color: #1f2a33;
+}
+
+.about-blog__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.about-blog__card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 26px;
+  border: 1px solid #e6edf2;
+  box-shadow: 0 10px 28px rgba(8, 14, 20, 0.05);
+}
+
+.about-blog__quote {
+  color: var(--mtg-primary);
+  margin-bottom: 12px;
+}
+
+.about-blog__stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 14px;
+  color: var(--mtg-accent);
+}
+
+.about-blog__text {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--mtg-muted);
+}
+
+.about-blog__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #edf1f4;
+}
+
+.about-blog__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--mtg-primary-soft), var(--mtg-primary));
+  flex-shrink: 0;
+}
+
+.about-blog__author strong {
+  display: block;
+  font-size: 15px;
+  color: #1f2a33;
+}
+
+.about-blog__author span {
+  font-size: 13px;
+  color: var(--mtg-muted);
+}
+
+.about-instagram {
+  padding: 0;
+  background: #0a0c0e;
+}
+
+.about-instagram__head {
+  text-align: center;
+  padding: 28px 16px 20px;
+  color: #e8f0f6;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-instagram__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+
+.about-instagram__grid a {
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+  opacity: 0.95;
+  transition: opacity 0.2s ease;
+}
+
+.about-instagram__grid a:hover {
+  opacity: 1;
+}
+
+.about-instagram__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-prefooter {
+  background: var(--mtg-primary);
+  color: #ffffff;
+  padding: 28px 0;
+}
+
+.about-prefooter__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.about-prefooter__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  text-align: left;
+}
+
+.about-prefooter__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.about-prefooter__item strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.about-prefooter__item span,
+.about-prefooter__item a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+}
+
+.about-prefooter__item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .about-triple__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-triple__cell {
+    aspect-ratio: 16 / 9;
+  }
+
+  .about-services__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-comfort__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-comfort__media {
+    order: -1;
+  }
+
+  .about-featured__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-contact-split__wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .about-contact-split__photo {
+    min-height: 260px;
+  }
+
+  .about-blog__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-instagram__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-prefooter__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-prefooter__item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-featured__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats__grid {
+    grid-template-columns: 1fr;
+  }
+}

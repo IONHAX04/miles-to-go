@@ -1,0 +1,509 @@
+/* Room details / booking — Luxivo-style template, Miles to Go theme */
+
+.booking-detail {
+  background: #ffffff;
+  color: var(--mtg-ink);
+}
+
+.booking-detail-hero {
+  position: relative;
+  min-height: min(48vh, 400px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: clamp(64px, 10vw, 100px) 20px;
+  color: #fff;
+}
+
+.booking-detail-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: #0a0c0e center / cover no-repeat;
+}
+
+.booking-detail-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 26, 38, 0.45) 0%,
+    rgba(8, 26, 38, 0.85) 100%
+  );
+}
+
+.booking-detail-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  padding: 0 12px;
+}
+
+.booking-detail-hero__title {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.booking-detail-hero__tagline {
+  margin: 0 0 18px;
+  font-size: clamp(0.7rem, 1.5vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.booking-detail-hero__crumb {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.booking-detail-hero__crumb a {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+}
+
+.booking-detail-hero__crumb a:hover {
+  text-decoration: underline;
+}
+
+.booking-detail-hero__sep {
+  margin: 0 0.4em;
+  opacity: 0.65;
+}
+
+.booking-detail-main {
+  padding: clamp(40px, 6vw, 56px) 0 clamp(64px, 9vw, 96px);
+  background: #fafcfd;
+}
+
+.booking-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  gap: clamp(28px, 4vw, 44px);
+  align-items: start;
+}
+
+.booking-detail-content {
+  min-width: 0;
+}
+
+.booking-detail-titlebar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.booking-detail-titlebar h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+  font-weight: 600;
+  color: #1a202c;
+  line-height: 1.25;
+}
+
+.booking-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-top: 8px;
+}
+
+.booking-detail-stars {
+  display: flex;
+  gap: 2px;
+  color: var(--mtg-accent);
+}
+
+.booking-detail-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mtg-muted);
+}
+
+.booking-detail-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid #d0dbe3;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--mtg-primary);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.booking-detail-share:hover {
+  border-color: var(--mtg-primary);
+  background: rgba(20, 80, 114, 0.06);
+}
+
+.booking-detail-quick {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid var(--mtg-border);
+  border-radius: 14px;
+}
+
+.booking-detail-quick__item {
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.booking-detail-quick__item svg {
+  margin: 0 auto 8px;
+  color: var(--mtg-primary);
+  display: block;
+}
+
+.booking-detail-quick__label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mtg-muted);
+  margin-bottom: 4px;
+}
+
+.booking-detail-quick__value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2a33;
+}
+
+.booking-detail-figure {
+  margin: 0 0 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(8, 14, 20, 0.08);
+}
+
+.booking-detail-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+.booking-detail-prose {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--mtg-muted);
+}
+
+.booking-detail-prose:last-of-type {
+  margin-bottom: 28px;
+}
+
+.booking-detail-subhead {
+  margin: 32px 0 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.booking-detail-subhead:first-of-type {
+  margin-top: 0;
+}
+
+.booking-detail-rules {
+  margin: 0 0 28px;
+  padding-left: 1.1rem;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--mtg-muted);
+}
+
+.booking-detail-rules li {
+  margin-bottom: 8px;
+}
+
+.booking-detail-amenities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.booking-detail-amenity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a3844;
+}
+
+.booking-detail-amenity svg {
+  flex-shrink: 0;
+  color: var(--mtg-primary);
+}
+
+.booking-detail-cancel {
+  margin: 0 0 28px;
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--mtg-muted);
+  background: #f0f4f8;
+  border-radius: 12px;
+  border: 1px solid #e2eaf0;
+}
+
+.booking-detail-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.booking-detail-features ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--mtg-muted);
+}
+
+.booking-detail-features li {
+  margin-bottom: 8px;
+}
+
+.booking-detail-gallery {
+  margin-top: 8px;
+}
+
+.booking-detail-gallery h3 {
+  margin: 0 0 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.booking-detail-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.booking-detail-gallery__grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Sidebar */
+.booking-detail-aside {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.booking-detail-widget {
+  background: #f0f2f4;
+  border: 1px solid #e0e6eb;
+  border-radius: 16px;
+  padding: 22px 20px;
+}
+
+.booking-detail-widget h3 {
+  margin: 0 0 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.booking-detail-widget label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mtg-muted);
+  margin-bottom: 6px;
+}
+
+.booking-detail-widget input,
+.booking-detail-widget select {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid #d0dbe3;
+  border-radius: 10px;
+  background: #ffffff;
+  margin-bottom: 12px;
+}
+
+.booking-detail-widget__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.booking-detail-extras {
+  margin: 8px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-detail-extra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a3844;
+}
+
+.booking-detail-extra input {
+  width: auto;
+  margin: 0;
+}
+
+.booking-detail-book {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1a4a66 0%, var(--mtg-primary) 100%);
+  color: #ffffff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.booking-detail-book:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(20, 80, 114, 0.3);
+}
+
+.booking-detail-room-select {
+  margin-bottom: 16px;
+}
+
+.booking-detail-room-select select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #d0dbe3;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--mtg-ink);
+}
+
+.booking-detail-support,
+.booking-detail-address-box {
+  background: #ffffff;
+  border: 1px solid var(--mtg-border);
+  border-radius: 14px;
+  padding: 18px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--mtg-muted);
+}
+
+.booking-detail-support strong,
+.booking-detail-address-box strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.booking-detail-support a {
+  color: var(--mtg-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.booking-detail-support a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .booking-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-detail-aside {
+    position: static;
+    order: -1;
+  }
+
+  .booking-detail-quick {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .booking-detail-amenities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-detail-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-detail-quick {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-detail-amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-detail-gallery__grid img {
+    height: 160px;
+  }
+}

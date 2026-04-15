@@ -1,0 +1,1389 @@
+:root {
+  --mtg-primary: #145072;
+  --mtg-primary-soft: #1d5f86;
+  --mtg-accent: #f4c63f;
+  --mtg-dark: #081a26;
+  --mtg-ink: #0d2535;
+  --mtg-muted: #566978;
+  --mtg-bg: #f4f8fb;
+  --mtg-card: #ffffff;
+  --mtg-border: #d5e0e8;
+  --mtg-border-dark: #234256;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell {
+  background: var(--mtg-bg);
+  color: var(--mtg-ink);
+  min-height: 100vh;
+}
+
+.app-splash {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  background: radial-gradient(circle at 20% 20%, #e9f3fa 0%, #f4f8fb 45%, #eef4f9 100%);
+}
+
+.app-splash__logo-wrap {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  border: 1px solid #dbe5ec;
+  box-shadow: 0 16px 32px rgba(8, 26, 38, 0.16);
+  position: relative;
+}
+
+.app-splash__logo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--mtg-primary);
+  border-right-color: #f4c63f;
+  animation: splashSpin 1s linear infinite;
+}
+
+.app-splash__logo {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  border-radius: 22px;
+}
+
+.container {
+  width: min(1160px, 92%);
+  margin: 0 auto;
+}
+
+.top-contact-bar {
+  background: var(--mtg-dark);
+  color: #c8d9e4;
+  border-bottom: 1px solid var(--mtg-border-dark);
+}
+
+.top-contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.top-contact-row p {
+  margin: 0;
+  font-size: 13px;
+  color: #c8d9e4;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--mtg-border);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(13, 37, 53, 0.06);
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 100%;
+  max-width: 280px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--mtg-border);
+  background: #ffffff;
+  color: var(--mtg-ink);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main-nav .mobile-quote-btn {
+  display: none;
+}
+
+.main-nav a,
+.main-nav-link {
+  color: var(--mtg-ink);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav-link:hover {
+  color: var(--mtg-primary);
+}
+
+.main-nav-link.is-active {
+  color: var(--mtg-primary);
+}
+
+.quote-btn,
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--mtg-primary) 0%, var(--mtg-primary-soft) 100%);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-btn:hover,
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(20, 80, 114, 0.24);
+}
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mtg-primary);
+  color: var(--mtg-primary);
+  background: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(20, 80, 114, 0.14);
+}
+
+.hero-section {
+  --hero-accent-light: #3f6f83; /* lighter tint of #104a63 */
+  position: relative;
+  padding: 56px 0 72px;
+  background: linear-gradient(180deg, #f8fcff 0%, #edf4f9 100%);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 70% 20%, rgba(63, 111, 131, 0.15), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 15% 80%, rgba(244, 198, 63, 0.14), transparent 50%),
+    linear-gradient(180deg, #f8fcff 0%, #edf4f9 100%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-bg--subtle {
+  opacity: 0.85;
+}
+
+.hero-title-serif {
+  margin: 0;
+  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--mtg-ink);
+  letter-spacing: -0.02em;
+}
+
+.hero-photo {
+  position: relative;
+  border-radius: 48px;
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(8, 26, 38, 0.16);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-split-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 24px 0 8px;
+}
+
+.hero-split-copy .eyebrow {
+  color: var(--hero-accent-light);
+}
+
+.hero-split-copy .hero-title-serif {
+  margin-top: 8px;
+}
+
+.hero-split-list {
+  margin: 20px 0 28px;
+  padding-left: 1.15rem;
+  color: #415565;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.hero-split-list li {
+  margin-bottom: 8px;
+}
+
+.hero-photo--split {
+  min-height: 420px;
+  max-height: 520px;
+}
+
+.hero-photo--split img {
+  width: 100%;
+  min-height: 420px;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.btn-arrow {
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.hero-cta,
+.hero-cta-secondary {
+  gap: 6px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Booking strip (static) — after hero, full-width band */
+.booking-bar-shell {
+  position: relative;
+  z-index: 12;
+  margin-top: -40px;
+  width: 100%;
+  padding: 36px 0 36px;
+  background: #f0f2ee;
+  border-top: 1px solid #e6e9e4;
+  border-bottom: 1px solid #dfe3dd;
+}
+
+.booking-bar {
+  position: relative;
+  z-index: 1;
+}
+
+.booking-bar__ornament {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+.booking-bar__ornament--tl {
+  left: clamp(10px, 4vw, 48px);
+  top: 12px;
+}
+
+.booking-bar__ornament--br {
+  right: clamp(10px, 4vw, 48px);
+  bottom: 20px;
+  align-items: flex-end;
+}
+
+.booking-bar__symbol--corner {
+  height: clamp(72px, 14vw, 112px);
+  width: auto;
+  display: block;
+}
+
+.booking-bar__symbol--rotate180 {
+  transform: rotate(180deg);
+}
+
+.booking-bar__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+}
+
+.booking-bar__title {
+  margin: 0 0 22px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  color: #2a333c;
+  letter-spacing: -0.02em;
+}
+
+.booking-bar__fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  gap: 18px 20px;
+  align-items: end;
+}
+
+.booking-field__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3d4a55;
+  letter-spacing: 0.02em;
+}
+
+.booking-field__control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 14px;
+  background: #ffffff;
+  border: 1px solid #d5dcd4;
+  border-radius: 10px;
+}
+
+.booking-field__control--date {
+  padding: 0 12px;
+}
+
+.booking-field__input-date {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2a333c;
+  color-scheme: light;
+  cursor: pointer;
+}
+
+.booking-field__input-date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.booking-field__control--select {
+  position: relative;
+  padding-right: 10px;
+}
+
+.booking-field__select {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 48px;
+  margin: 0 -4px 0 0;
+  padding: 0 8px 0 2px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2a333c;
+  cursor: pointer;
+  appearance: none;
+}
+
+.booking-field__control--select .booking-field__chevron {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.booking-field__static {
+  font-size: 14px;
+  color: #5c6a74;
+}
+
+.booking-field__icon {
+  flex-shrink: 0;
+  color: var(--mtg-primary);
+  display: grid;
+  place-items: center;
+}
+
+.booking-field__chevron {
+  flex-shrink: 0;
+  display: inline-flex;
+  color: var(--mtg-primary);
+  opacity: 0.75;
+}
+
+.booking-bar__cta-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.booking-bar__cta {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--mtg-primary);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.booking-bar__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(20, 80, 114, 0.28);
+}
+
+.booking-bar__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding-top: 4px;
+}
+
+.booking-bar__divider-main {
+  flex: 1;
+  min-width: 160px;
+  max-width: 520px;
+  height: auto;
+  opacity: 0.72;
+}
+
+.booking-bar__divider-cap {
+  width: clamp(28px, 6vw, 44px);
+  height: auto;
+  opacity: 0.65;
+}
+
+.booking-bar__divider-cap--flip {
+  transform: scaleX(-1);
+}
+
+.split {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.eyebrow {
+  color: var(--mtg-primary-soft);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+h1:not(.hero-title-serif) {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.08;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 12px 0 8px;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.lead,
+p {
+  margin: 0;
+  color: var(--mtg-muted);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 26px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card,
+.chip,
+.contact-form,
+.policy-card,
+.site-footer,
+.stat-card {
+  border: 1px solid var(--mtg-border);
+}
+
+.hero-section .eyebrow,
+.hero-section .hero-title-serif,
+.hero-section .lead {
+  color: var(--mtg-ink);
+}
+
+.hero-section .eyebrow {
+  color: var(--hero-accent-light);
+}
+
+.hero-section .primary-btn {
+  background: linear-gradient(135deg, #104a63 0%, var(--hero-accent-light) 100%);
+  color: #ffffff;
+}
+
+.hero-section .secondary-btn {
+  border-color: rgba(63, 111, 131, 0.45);
+  color: #104a63;
+  background: #ffffff;
+}
+
+.hero-section .secondary-btn:hover {
+  border-color: var(--hero-accent-light);
+  color: #104a63;
+  background: #f5fbff;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section.alt {
+  background: #ebf2f7;
+}
+
+.home-welcome-cta {
+  margin-top: 16px;
+}
+
+.section-head {
+  margin-bottom: 22px;
+}
+
+.heading-with-symbol {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
+}
+
+.heading-with-symbol::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 76px;
+  height: 12px;
+  transform: translateX(-50%);
+  background: url('./assets/images/SYMBOLS-05.svg') center / contain no-repeat;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.card-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  background: var(--mtg-card);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.image-placeholder {
+  height: 146px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dce8f0, #f7fbff);
+  border: 1px dashed #aec3d2;
+  display: grid;
+  place-items: center;
+  color: #607587;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px;
+}
+
+.chip-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.chip {
+  background: var(--mtg-card);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  color: var(--mtg-ink);
+  font-weight: 700;
+}
+
+.stats-grid {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stat-card {
+  background: #f7fbff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 6px;
+}
+
+.stat-card span {
+  color: var(--mtg-muted);
+  font-size: 14px;
+}
+
+.stat-card strong {
+  color: var(--mtg-primary);
+  font-size: 24px;
+}
+
+.note-text {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+/* Rooms & suites (Luxivo-style block) */
+.rooms-section {
+  background: #f4f5f3;
+}
+
+.rooms-header-wrap {
+  margin-bottom: 40px;
+}
+
+.rooms-header-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: min(320px, 42vw);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e6e1;
+}
+
+.rooms-header-copy {
+  background: #f7f8f6;
+  padding: clamp(28px, 5vw, 52px) clamp(22px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.rooms-header-flourish {
+  width: auto;
+  height: 52px;
+  object-fit: contain;
+  align-self: flex-start;
+  opacity: 0.85;
+}
+
+.rooms-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mtg-primary);
+}
+
+.rooms-title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1f2a33;
+  letter-spacing: -0.02em;
+}
+
+.rooms-header-visual {
+  position: relative;
+  min-height: 280px;
+  background: #0a0c0e;
+}
+
+.rooms-header-visual img,
+.rooms-header-carousel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.room-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rooms-carousel-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  pointer-events: none;
+}
+
+.rooms-carousel-btn {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  background: rgba(8, 12, 16, 0.42);
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.rooms-carousel-btn:hover {
+  background: rgba(8, 12, 16, 0.62);
+  transform: scale(1.04);
+}
+
+.rooms-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.room-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e6e9e4;
+  box-shadow: 0 10px 28px rgba(8, 14, 20, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #e8edf1;
+}
+
+.room-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #607587;
+  background: linear-gradient(135deg, #dce8f0, #f4f8fb);
+  border-bottom: 1px dashed #c5d2de;
+}
+
+.room-card__rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(8, 12, 16, 0.58);
+  backdrop-filter: blur(6px);
+}
+
+.room-card__body {
+  padding: 18px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+.room-card__name {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #1f2a33;
+}
+
+.room-card__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--mtg-muted);
+  flex: 1;
+}
+
+.room-card__specs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5662;
+}
+
+.room-card__specs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.room-card__spec-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--mtg-primary);
+  opacity: 0.85;
+}
+
+.room-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid #edf1f4;
+}
+
+.room-card__price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2a33;
+}
+
+.room-card__details {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--mtg-primary);
+  padding: 8px 12px;
+  border: 1px solid rgba(20, 80, 114, 0.35);
+  border-radius: 999px;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.room-card__details:hover {
+  background: var(--mtg-primary);
+  color: #fff;
+  border-color: var(--mtg-primary);
+}
+
+.rooms-stats {
+  margin-top: 36px;
+}
+
+.detail-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  color: var(--mtg-muted);
+}
+
+.policy-card {
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 18px;
+  align-self: start;
+}
+
+.contact-form {
+  border-radius: 18px;
+  padding: 18px;
+  background: var(--mtg-card);
+  display: grid;
+  gap: 12px;
+  align-self: start;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--mtg-border);
+  border-radius: 12px;
+  padding: 11px 13px;
+  font: inherit;
+}
+
+.contact-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.quote-section {
+  background: linear-gradient(180deg, #0c2738 0%, #153f57 100%);
+}
+
+.quote-section h2,
+.quote-section p {
+  color: #ffffff;
+}
+
+.quote-section .eyebrow {
+  color: #d7e8f2;
+}
+
+.booking-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.quote-section .secondary-btn {
+  border-color: #cfe2ee;
+  color: #dcedf7;
+  background: transparent;
+}
+
+.site-footer {
+  background: #0d1a24;
+  color: #cad6df;
+  border-top: 1px solid #243947;
+  padding: 38px 0 18px;
+}
+
+.footer-main {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+}
+
+.footer-main h3 {
+  color: #f0f7fb;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-main p {
+  color: #cad6df;
+}
+
+.footer-links {
+  display: grid;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: #e8f2f8;
+  text-decoration: none;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 18px;
+  border-top: 1px solid #2b4050;
+  padding-top: 14px;
+}
+
+.footer-legal-links {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.footer-legal-links a {
+  color: #e8f2f8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-legal-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.legal-page {
+  background: #f4f8fb;
+}
+
+.legal-page__updated {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.legal-page__content {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.legal-page__section {
+  background: #ffffff;
+  border: 1px solid var(--mtg-border);
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.legal-page__section h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.contact-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 90;
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+}
+
+.contact-fab__panel {
+  width: min(260px, calc(100vw - 32px));
+  background: #ffffff;
+  border: 1px solid var(--mtg-border);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(8, 26, 38, 0.18);
+  padding: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.contact-fab__panel.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.contact-fab__title {
+  margin: 0 0 10px;
+  color: var(--mtg-ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-fab__actions {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-fab__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.contact-fab__action.wa {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.contact-fab__action.call {
+  background: #e8edf2;
+  color: #2b3d4d;
+}
+
+.contact-fab__toggle {
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 50%;
+  background: #1e2c35;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(8, 26, 38, 0.28);
+  transition: transform 0.15s ease;
+}
+
+.contact-fab__toggle:hover {
+  transform: scale(1.05);
+}
+
+.contact-fab__toggle:active {
+  transform: scale(0.96);
+}
+
+[id] {
+  scroll-margin-top: 108px;
+}
+
+@media (max-width: 960px) {
+  .top-contact-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav {
+    gap: 12px;
+  }
+
+  .brand img {
+    max-width: 220px;
+    height: 50px;
+  }
+
+  .booking-bar__fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .booking-bar__cta-wrap {
+    grid-column: 1 / -1;
+    justify-content: stretch;
+  }
+
+  .booking-bar__cta {
+    width: 100%;
+  }
+
+  .hero-split-grid,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-split-grid {
+    padding: 16px 0 0;
+  }
+
+  .hero-photo--split {
+    order: -1;
+    max-height: 320px;
+    min-height: 0;
+  }
+
+  .hero-photo--split img {
+    min-height: 220px;
+    max-height: 320px;
+  }
+
+  .rooms-header-split {
+    grid-template-columns: 1fr;
+  }
+
+  .rooms-header-visual {
+    order: -1;
+    min-height: 240px;
+  }
+
+  .rooms-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-bar__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-bar__ornament {
+    display: none;
+  }
+
+  .booking-bar-shell {
+    margin-top: -24px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .top-contact-bar {
+    display: none;
+  }
+
+  .nav-row {
+    position: relative;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+  }
+
+  .desktop-quote-btn {
+    display: none;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 40;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: #ffffff;
+    border: 1px solid var(--mtg-border);
+    border-radius: 14px;
+    box-shadow: 0 16px 28px rgba(8, 26, 38, 0.12);
+    overflow: hidden;
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav-link {
+    display: block;
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf1f4;
+  }
+
+  .main-nav .main-nav-link:last-of-type {
+    border-bottom: 0;
+  }
+
+  .main-nav .mobile-quote-btn {
+    display: inline-flex;
+    margin: 12px;
+    justify-content: center;
+    color: #ffffff;
+  }
+
+  .main-nav .mobile-quote-btn:hover {
+    color: #ffffff;
+  }
+
+  .brand img {
+    max-width: 200px;
+  }
+
+  .rooms-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-fab {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .card-grid,
+  .chip-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes splashSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
