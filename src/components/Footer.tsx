@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container footer-main">
         <div>
           <h3>Miles to Go - Comfortable & Affordable Stay in Zurich</h3>
-          <p>Kaiserstuhlstrasse 79, 8154 Overglatt, Zurich, Switzerland</p>
+          <p>Kaiserstuhlstrasse 79, 8154 Oberglatt, Zurich, Switzerland</p>
           <p>info@milestogo.ch</p>
           <p>Phone: +41 76 223 45 67</p>
         </div>
@@ -20,25 +20,22 @@ export function Footer() {
             <Link to="/contact">Contact</Link>
             <Link to="/enquiry">Enquiry</Link>
             <Link to="/terms-and-conditions">Terms & Conditions</Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/refund-policy">Refund Policy</Link>
+            <Link to="/imprint">Imprint</Link>
           </nav>
         </div>
         <div>
           <h3>Hotel Policies</h3>
           <p>Check-in: 15:00</p>
-          <p>Check-out: 11:00</p>
-          <p>Free cancellation up to 5 days before check-in</p>
+          <p>Check-out: 10:00</p>
+          <p>Non-refundable for homepage bookings</p>
         </div>
       </div>
       <div className="container footer-bottom">
         <p>© 2026 Miles to Go. All Rights Reserved.</p>
         <p className="footer-legal-links">
           <Link to="/terms-and-conditions">Terms & Conditions</Link>
-          {' · '}
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          {' · '}
-          <Link to="/refund-policy">Refund Policy</Link>
+          <span className="separator">|</span>
+          <Link to="/imprint">Imprint</Link>
         </p>
       </div>
     </footer>

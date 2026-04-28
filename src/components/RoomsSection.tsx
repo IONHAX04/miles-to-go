@@ -119,7 +119,7 @@ export function RoomsSection() {
           </div>
           <div className="stat-card">
             <span>Starting Price</span>
-            <strong>150</strong>
+            <strong>120</strong>
           </div>
           <div className="stat-card">
             <span>Included</span>

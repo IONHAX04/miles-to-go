@@ -10,7 +10,7 @@ import { BookingRequestPage } from './pages/BookingRequestPage'
 import { ContactPage } from './pages/ContactPage'
 import { EnquiryPage } from './pages/EnquiryPage'
 import { HomePage } from './pages/HomePage'
-import { PrivacyPolicyPage, RefundPolicyPage, TermsAndConditionsPage } from './pages/LegalPage'
+import { ImprintPage, TermsAndConditionsPage } from './pages/LegalPage'
 import { LocationPage } from './pages/LocationPage'
 import { RoomsPage } from './pages/RoomsPage'
 
@@ -45,9 +45,9 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/enquiry" element={<EnquiryPage />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/refund-policy" element={<RefundPolicyPage />} />
+        <Route path="/imprint" element={<ImprintPage />} />
         <Route path="/booking" element={<BookingRequestPage />} />
+
         <Route path="/booking/:roomSlug" element={<BookingPage />} />
       </Route>
     </Routes>

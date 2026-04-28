@@ -234,7 +234,11 @@ export function BookingPage() {
               {room.amenities.map((a) => (
                 <div key={a.label} className="booking-detail-amenity">
                   <Icon k={a.key} />
-                  {a.label}
+                  {a.key === 'bath'
+                    ? `${a.label} — ${
+                        room.category.charAt(0).toUpperCase() + room.category.slice(1)
+                      } Room`
+                    : a.label}
                 </div>
               ))}
             </div>
@@ -353,14 +357,14 @@ export function BookingPage() {
                 <div className="booking-detail-extras">
                   {EXTRAS.map((ex) => (
                     <label key={ex.id} className="booking-detail-extra">
+                      <input
+                        type="checkbox"
+                        checked={extras[ex.id] ?? false}
+                        onChange={(e) =>
+                          setExtras((prev) => ({ ...prev, [ex.id]: e.target.checked }))
+                        }
+                      />
                       <span>
-                        <input
-                          type="checkbox"
-                          checked={extras[ex.id] ?? false}
-                          onChange={(e) =>
-                            setExtras((prev) => ({ ...prev, [ex.id]: e.target.checked }))
-                          }
-                        />{' '}
                         {ex.label}{' '}
                         <span style={{ color: 'var(--mtg-muted)', fontWeight: 500 }}>
                           (+CHF {ex.price})

@@ -10,10 +10,10 @@ type FilterId = 'all' | RoomsPageCategory
 
 const FILTERS: { id: FilterId; label: string }[] = [
   { id: 'all', label: 'Show All' },
-  { id: 'luxury', label: 'Luxury Room' },
-  { id: 'suite', label: 'Suite Room' },
-  { id: 'deluxe', label: 'Deluxe Room' },
-  { id: 'twins', label: 'Twins Rooms' },
+  { id: 'standard', label: 'Standard Room' },
+  { id: 'single', label: 'Single Room' },
+  { id: 'double', label: 'Double Room' },
+  { id: 'quadruple', label: 'Quadruple Room' },
 ]
 
 const GRID = getGridRoomItems()

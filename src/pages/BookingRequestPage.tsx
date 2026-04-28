@@ -2,6 +2,7 @@ import { CheckCircle2, X } from 'lucide-react'
 import logoVertic from '../assets/logo/logo_vertic.png'
 import { useMemo, useState, type FormEvent } from 'react'
 
+import { ALL_ROOM_DETAILS } from '../data/roomTemplates'
 import './booking-request-page.css'
 
 function formatDateInput(d: Date) {
@@ -20,6 +21,7 @@ function parseDateInput(s: string): Date | null {
 
 export function BookingRequestPage() {
   const todayStr = useMemo(() => formatDateInput(new Date()), [])
+  const [selectedRoom, setSelectedRoom] = useState(ALL_ROOM_DETAILS[0].slug)
   const [checkIn, setCheckIn] = useState(todayStr)
   const [checkOut, setCheckOut] = useState(() => {
     const t = new Date()
@@ -81,18 +83,38 @@ export function BookingRequestPage() {
             <label htmlFor="br-name">Full name</label>
             <input id="br-name" name="name" type="text" placeholder="Your name" required />
 
-            <label htmlFor="br-email">Email</label>
-            <input
-              id="br-email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              autoComplete="email"
-              required
-            />
+            <div className="booking-request-grid">
+              <div>
+                <label htmlFor="br-email">Email</label>
+                <input
+                  id="br-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  autoComplete="email"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="br-phone">Phone</label>
+                <input id="br-phone" name="phone" type="tel" placeholder="+41 ..." required />
+              </div>
+            </div>
 
-            <label htmlFor="br-phone">Phone</label>
-            <input id="br-phone" name="phone" type="tel" placeholder="+41 ..." required />
+            <label htmlFor="br-room-type">Room type</label>
+            <select
+              id="br-room-type"
+              value={selectedRoom}
+              onChange={(e) => setSelectedRoom(e.target.value)}
+              required
+            >
+              {ALL_ROOM_DETAILS.map((room) => (
+                <option key={room.id} value={room.slug}>
+                  {room.title} ({room.category.charAt(0).toUpperCase() + room.category.slice(1)} Room)
+                </option>
+              ))}
+            </select>
+
 
             <div className="booking-request-grid">
               <div>
@@ -199,10 +221,10 @@ export function BookingRequestPage() {
             </button>
             <h2 id="booking-terms-title">Terms &amp; Conditions acknowledgement</h2>
             <ul>
-              <li>Check-in starts at 15:00 and check-out is by 11:00.</li>
-              <li>Standard rates are refundable up to 5 days before check-in.</li>
-              <li>No-show or late cancellation may incur applicable charges.</li>
-              <li>Guests must follow hotel safety and house policies during the stay.</li>
+              <li>Check-in starts at 15:00 and check-out is by 10:00.</li>
+              <li>Reservations made on the homepage are 100% chargeable and non-refundable.</li>
+              <li>Smoking is strictly prohibited in all areas.</li>
+              <li>Guests must provide a valid ID for direct bookings.</li>
             </ul>
             <p>
               By continuing with booking, you agree to these terms. You can review the full policy

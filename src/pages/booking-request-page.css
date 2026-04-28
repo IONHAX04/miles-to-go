@@ -29,7 +29,7 @@
   color: #2f4658;
 }
 
-.booking-request-form input,
+.booking-request-form input:not([type='checkbox']),
 .booking-request-form select,
 .booking-request-form textarea {
   width: 100%;
@@ -39,6 +39,13 @@
   font: inherit;
   color: var(--mtg-ink);
   background: #ffffff;
+}
+
+.booking-request-form input[type='checkbox'] {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent checkbox from shrinking on small screens */
 }
 
 .booking-request-form textarea {
@@ -65,10 +72,21 @@
 
 .booking-request-terms__check {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 12px;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.booking-request-terms__check input {
+  margin-top: 4px;
+}
+
+.booking-request-terms__check span {
+  line-height: 1.5;
+  color: var(--mtg-ink);
 }
 
 .booking-request-terms__check button {
@@ -80,6 +98,7 @@
   font-weight: 700;
   cursor: pointer;
   padding: 0;
+  display: inline;
 }
 
 .booking-request-success h2 {

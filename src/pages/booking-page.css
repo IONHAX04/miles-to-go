@@ -388,17 +388,23 @@
 
 .booking-detail-extra {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
   font-size: 13px;
   font-weight: 600;
   color: #2a3844;
+  cursor: pointer;
 }
 
 .booking-detail-extra input {
   width: auto;
   margin: 0;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.booking-detail-extra span {
+  line-height: 1.4;
 }
 
 .booking-detail-book {
