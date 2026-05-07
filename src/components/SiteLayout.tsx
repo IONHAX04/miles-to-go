@@ -53,6 +53,19 @@ export function SiteLayout() {
             <NavLink to="/" end className={navClass}>
               Home
             </NavLink>
+            <button
+              type="button"
+              className="main-nav-link"
+              onClick={() => {
+                const url = getLittleHotelierUrl({
+                  checkIn: new Date().toISOString().split('T')[0],
+                  checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                })
+                openBooking(url)
+              }}
+            >
+              Rooms
+            </button>
             <NavLink to="/about" className={navClass}>
               About Us
             </NavLink>
