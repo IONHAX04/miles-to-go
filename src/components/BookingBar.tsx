@@ -1,9 +1,10 @@
 import { ChevronDown } from 'lucide-react'
 import { useMemo, useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
 import symbols02 from '../assets/images/SYMBOLS-02.svg'
 import symbols04 from '../assets/images/SYMBOLS-04.svg'
 import symbols05 from '../assets/images/SYMBOLS-05.svg'
+import { getLittleHotelierUrl } from '../services/littleHotelierService'
+import { useBooking } from '../context/BookingContext'
 
 function formatDateInput(d: Date) {
   const y = d.getFullYear()
@@ -37,7 +38,6 @@ const GUEST_OPTIONS = [
  * Booking strip after the hero: date pickers, room/guest selects, Check Now goes to /booking.
  */
 export function BookingBar() {
-  const navigate = useNavigate()
   const todayStr = useMemo(() => formatDateInput(new Date()), [])
 
   const [checkIn, setCheckIn] = useState(() => formatDateInput(new Date()))
@@ -72,9 +72,22 @@ export function BookingBar() {
     setCheckOut(value)
   }
 
+  const { openBooking } = useBooking()
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    navigate('/booking')
+    
+    // Construct Little Hotelier URL
+    const [adults, children] = guests.split('-').map(Number)
+    const url = getLittleHotelierUrl({
+      checkIn,
+      checkOut,
+      adults,
+      children,
+    })
+    
+    // Open consent modal instead of direct redirect
+    openBooking(url)
   }
 
   return (

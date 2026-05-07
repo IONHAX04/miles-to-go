@@ -8,12 +8,13 @@ import {
   Star,
 } from 'lucide-react'
 import { useCallback, useState } from 'react'
-import { Link } from 'react-router-dom'
 import home3 from '../assets/images/HOME_3.jpg'
 import home5 from '../assets/images/HOME_5.jpg'
 import home6 from '../assets/images/HOME_6.jpg'
 import home7 from '../assets/images/HOME_7.jpg'
 import { getHomeRoomCards } from '../data/roomTemplates'
+import { getLittleHotelierUrl } from '../services/littleHotelierService'
+import { useBooking } from '../context/BookingContext'
 
 /** Header carousel: newest / wide shots (order 7 → 6 → 5 → …). */
 const CAROUSEL_IMAGES = [home7, home6, home5, home3] as const
@@ -21,6 +22,7 @@ const CAROUSEL_IMAGES = [home7, home6, home5, home3] as const
 const ROOMS = getHomeRoomCards()
 
 export function RoomsSection() {
+  const { openBooking } = useBooking()
   const [carouselIndex, setCarouselIndex] = useState(0)
 
   const stepCarousel = useCallback((delta: number) => {
@@ -102,10 +104,21 @@ export function RoomsSection() {
                 </ul>
                 <div className="room-card__footer">
                   <span className="room-card__price">CHF {room.price}/Per Night</span>
-                  <Link to={`/booking/${room.slug}`} className="room-card__details">
-                    View Details
+                  <button
+                    type="button"
+                    className="room-card__details"
+                    onClick={() => {
+                      const url = getLittleHotelierUrl({
+                        checkIn: new Date().toISOString().split('T')[0],
+                        checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                        rateId: room.rateId,
+                      })
+                      openBooking(url)
+                    }}
+                  >
+                    Book Now
                     <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </article>

@@ -20,6 +20,8 @@ import homeContact from '../assets/images/HOME_CONTACT.jpg'
 import rooms1 from '../assets/images/ROOMS1.jpg'
 import rooms2 from '../assets/images/ROOMS2.jpg'
 import rooms3 from '../assets/images/ROOMS3.jpg'
+import { getLittleHotelierUrl } from '../services/littleHotelierService'
+import { useBooking } from '../context/BookingContext'
 import './about-page.css'
 
 const GALLERY_TRIPLE = [
@@ -44,6 +46,7 @@ const STATS = [
 ] as const
 
 export function AboutPage() {
+  const { openBooking } = useBooking()
   return (
     <div className="about-page">
       <section className="about-hero" aria-labelledby="about-hero-title">
@@ -163,9 +166,19 @@ export function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <Link to="/rooms" className="primary-btn">
+              <button
+                type="button"
+                className="primary-btn"
+                onClick={() => {
+                  const url = getLittleHotelierUrl({
+                    checkIn: new Date().toISOString().split('T')[0],
+                    checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                  })
+                  openBooking(url)
+                }}
+              >
                 Learn more
-              </Link>
+              </button>
             </div>
             <div className="about-comfort__media" data-aos="fade-left" data-aos-delay="120">
               <img src={aboutStory} alt="Miles to Go hotel interior" />
@@ -190,9 +203,20 @@ export function AboutPage() {
                 <img src={room.image} alt="" />
                 <div className="about-featured__overlay">
                   <h3 className="about-featured__name">{room.title}</h3>
-                  <Link to={`/booking/${room.slug}`} className="about-featured__btn">
+                  <button
+                    type="button"
+                    className="about-featured__btn"
+                    onClick={() => {
+                      const url = getLittleHotelierUrl({
+                        checkIn: new Date().toISOString().split('T')[0],
+                        checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                        rateId: room.slug.includes('standard') ? '989808' : undefined, // Example mapping
+                      })
+                      openBooking(url)
+                    }}
+                  >
                     More details
-                  </Link>
+                  </button>
                 </div>
               </article>
             ))}
@@ -296,9 +320,21 @@ export function AboutPage() {
         <p className="about-instagram__head">Follow the journey @milestogo</p>
         <div className="about-instagram__grid">
           {INSTAGRAM_GRID.map((src, i) => (
-            <Link key={i} to="/rooms" aria-label={`View rooms — gallery image ${i + 1}`}>
+            <button
+              key={i}
+              type="button"
+              className="about-instagram__btn"
+              aria-label={`View rooms — gallery image ${i + 1}`}
+              onClick={() => {
+                const url = getLittleHotelierUrl({
+                  checkIn: new Date().toISOString().split('T')[0],
+                  checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                })
+                openBooking(url)
+              }}
+            >
               <img src={src} alt="" />
-            </Link>
+            </button>
           ))}
         </div>
       </section>

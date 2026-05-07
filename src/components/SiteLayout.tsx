@@ -2,6 +2,8 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import logoHorizontal from '../assets/logo/logo_horizontal.png'
+import { getLittleHotelierUrl } from '../services/littleHotelierService'
+import { useBooking } from '../context/BookingContext'
 import { ContactFab } from './ContactFab'
 import { Footer } from './Footer'
 
@@ -10,6 +12,7 @@ function navClass({ isActive }: { isActive: boolean }) {
 }
 
 export function SiteLayout() {
+  const { openBooking } = useBooking()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const { pathname } = useLocation()
 
@@ -50,9 +53,6 @@ export function SiteLayout() {
             <NavLink to="/" end className={navClass}>
               Home
             </NavLink>
-            <NavLink to="/rooms" className={navClass}>
-              Rooms
-            </NavLink>
             <NavLink to="/about" className={navClass}>
               About Us
             </NavLink>
@@ -62,14 +62,34 @@ export function SiteLayout() {
             <NavLink to="/enquiry" className={navClass}>
               Enquiry
             </NavLink>
-            <Link to="/booking" className="quote-btn mobile-quote-btn">
+            <button
+              type="button"
+              className="quote-btn mobile-quote-btn"
+              onClick={() => {
+                const url = getLittleHotelierUrl({
+                  checkIn: new Date().toISOString().split('T')[0],
+                  checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                })
+                openBooking(url)
+              }}
+            >
               Book Now
-            </Link>
+            </button>
           </nav>
 
-          <Link to="/booking" className="quote-btn desktop-quote-btn">
+          <button
+            type="button"
+            className="quote-btn desktop-quote-btn"
+            onClick={() => {
+              const url = getLittleHotelierUrl({
+                checkIn: new Date().toISOString().split('T')[0],
+                checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+              })
+              openBooking(url)
+            }}
+          >
             Book Now
-          </Link>
+          </button>
         </div>
       </header>
 

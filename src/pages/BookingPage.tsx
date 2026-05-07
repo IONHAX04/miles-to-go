@@ -24,6 +24,8 @@ import {
   HOTEL_CONTACT,
   getRoomBySlug,
 } from '../data/roomTemplates'
+import { getLittleHotelierUrl } from '../services/littleHotelierService'
+import { useBooking } from '../context/BookingContext'
 import './booking-page.css'
 
 const AMENITY_ICONS: Record<AmenityKey, typeof Wifi> = {
@@ -106,9 +108,22 @@ export function BookingPage() {
     setCheckOut(value)
   }
 
+  const { openBooking } = useBooking()
+
   const handleBook = (e: FormEvent) => {
     e.preventDefault()
-    // Placeholder until payment engine is connected
+    
+    // Construct Little Hotelier URL
+    const url = getLittleHotelierUrl({
+      checkIn,
+      checkOut,
+      adults: Number(adults),
+      children: Number(children),
+      rateId: room?.rateId,
+    })
+    
+    // Open consent modal instead of direct redirect
+    openBooking(url)
   }
 
   const handleShare = async () => {

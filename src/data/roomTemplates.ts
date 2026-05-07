@@ -54,6 +54,8 @@ export type RoomDetailTemplate = {
   cardBeds: string
   cardBaths: string
   cardPrice: string
+  /** Little Hotelier Rate ID for deep linking */
+  rateId?: string
 }
 
 const HOTEL_ADDRESS = 'Kaiserstuhlstrasse 79, 8154 Oberglatt, Zurich, Switzerland'
@@ -605,6 +607,7 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     cardBeds: '3 Beds',
     cardBaths: 'Shared',
     cardPrice: '220',
+    rateId: '995086', // Classic Quadruple
   },
   {
     id: '16',
@@ -638,6 +641,7 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     cardBeds: '4 Beds',
     cardBaths: 'Shared',
     cardPrice: '240',
+    rateId: '995088', // Comfort Quadruple
   },
   {
     id: '17',
@@ -720,6 +724,7 @@ export function getGridRoomItems() {
     title: r.title,
     image: r.image,
     category: r.category,
+    rateId: r.rateId,
   }))
 }
 
@@ -733,6 +738,7 @@ export function getHomeRoomCards() {
     beds: r.cardBeds,
     baths: r.cardBaths,
     price: r.cardPrice,
+    rateId: r.rateId,
   }))
 }
 

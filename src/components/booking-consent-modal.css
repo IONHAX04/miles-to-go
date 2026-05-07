@@ -1,0 +1,210 @@
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: modalFadeIn 0.3s ease-out;
+  overflow-y: auto; /* Enable scrolling on the overlay if content is too tall */
+}
+
+.booking-modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 12px;
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh; /* Don't exceed viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-modal-body {
+  color: var(--mtg-text);
+  line-height: 1.6;
+  overflow-y: auto; /* Enable internal scrolling */
+  padding-right: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* Custom scrollbar for the modal body */
+.booking-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.booking-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(var(--mtg-accent-rgb), 0.2);
+  border-radius: 10px;
+}
+
+.booking-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #fff; /* Ensure it stays above content */
+  border: none;
+  color: var(--mtg-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.booking-modal-close:hover {
+  color: var(--mtg-primary);
+}
+
+.booking-modal-header {
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.booking-modal-header h2 {
+  font-size: 1.75rem;
+  color: var(--mtg-primary);
+}
+
+.booking-modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  background: var(--mtg-bg-alt);
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.booking-modal-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.booking-modal-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--mtg-accent);
+  font-weight: bold;
+}
+
+.booking-modal-link-wrap {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.booking-modal-link-wrap a {
+  color: var(--mtg-accent);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.booking-modal-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(var(--mtg-accent-rgb), 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(var(--mtg-accent-rgb), 0.1);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.booking-modal-checkbox:hover {
+  background: rgba(var(--mtg-accent-rgb), 0.08);
+}
+
+.booking-modal-checkbox input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--mtg-accent);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.booking-modal-checkbox input:checked + .checkbox-custom {
+  background: var(--mtg-accent);
+}
+
+.checkbox-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--mtg-primary);
+}
+
+.booking-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.booking-modal-btn {
+  width: 100%;
+  justify-content: center;
+  height: 52px;
+}
+
+.booking-modal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .booking-modal-overlay {
+    padding: 0;
+    align-items: flex-end; /* Slide from bottom on mobile */
+  }
+
+  .booking-modal-content {
+    max-width: none;
+    height: 100%; /* Full screen height */
+    max-height: 100%;
+    border-radius: 0;
+    padding: 2rem 1.5rem;
+    animation: modalSlideUpMobile 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .booking-modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .booking-modal-body {
+    flex-grow: 1;
+  }
+
+  @keyframes modalSlideUpMobile {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}

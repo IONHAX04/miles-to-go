@@ -12,7 +12,6 @@ import { EnquiryPage } from './pages/EnquiryPage'
 import { HomePage } from './pages/HomePage'
 import { ImprintPage, TermsAndConditionsPage } from './pages/LegalPage'
 import { LocationPage } from './pages/LocationPage'
-import { RoomsPage } from './pages/RoomsPage'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -38,7 +37,6 @@ export default function App() {
     <Routes>
       <Route element={<SiteLayout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/rooms" element={<RoomsPage />} />
         <Route path="/facilities" element={<Navigate to="/about" replace />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/location" element={<LocationPage />} />
