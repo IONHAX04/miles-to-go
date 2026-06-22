@@ -66,6 +66,9 @@ export function SiteLayout() {
             >
               Rooms
             </button>
+            <NavLink to="/gallery" className={navClass}>
+              Gallery
+            </NavLink>
             <NavLink to="/about" className={navClass}>
               About Us
             </NavLink>

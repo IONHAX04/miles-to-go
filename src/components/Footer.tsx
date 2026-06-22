@@ -15,6 +15,7 @@ export function Footer() {
           <nav className="footer-links" aria-label="Footer quick links">
             <Link to="/">Home</Link>
             <Link to="/about">About Us</Link>
+            <Link to="/gallery">Gallery</Link>
             <Link to="/location">Location</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/enquiry">Enquiry</Link>

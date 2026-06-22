@@ -12,6 +12,8 @@ import { EnquiryPage } from './pages/EnquiryPage'
 import { HomePage } from './pages/HomePage'
 import { ImprintPage, TermsAndConditionsPage } from './pages/LegalPage'
 import { LocationPage } from './pages/LocationPage'
+import { GalleryPage } from './pages/GalleryPage'
+
 
 export default function App() {
   const { pathname } = useLocation()
@@ -42,6 +44,7 @@ export default function App() {
         <Route path="/location" element={<LocationPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/enquiry" element={<EnquiryPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
         <Route path="/imprint" element={<ImprintPage />} />
         <Route path="/booking" element={<BookingRequestPage />} />
