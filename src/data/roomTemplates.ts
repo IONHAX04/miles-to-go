@@ -9,14 +9,19 @@ const g1 = galleryImages[0]
 const g3 = galleryImages[2]
 const g4 = galleryImages[3]
 const g7 = galleryImages[6]
+const g16 = galleryImages[15]
+const g20 = galleryImages[19]
 const g24 = galleryImages[23]
 const g25 = galleryImages[24]
-const g26 = galleryImages[25]
 const g27 = galleryImages[26]
 const g28 = galleryImages[27]
 const g29 = galleryImages[28]
-const g30 = galleryImages[29]
-const g31 = galleryImages[30]
+const g37 = galleryImages[36]
+const g38 = galleryImages[37]
+const g41 = galleryImages[40]
+const g42 = galleryImages[41]
+const g43 = galleryImages[42]
+const g45 = galleryImages[44]
 
 
 export type RoomsPageCategory = 'standard' | 'single' | 'double' | 'quadruple'
@@ -120,11 +125,11 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     heroTitle: 'Comfortable Stay',
     tagline: 'GREAT CHOICE FOR A RELAXING STAY NEAR ZURICH AIRPORT',
     category: 'standard',
-    image: g1,
-    heroImage: g1,
-    mainImage: g1,
-    secondaryImage: g3,
-    gallery: [g4, g7],
+    image: g16,
+    heroImage: g16,
+    mainImage: g16,
+    secondaryImage: g20,
+    gallery: [g3, g7],
     locationLabel: 'Zurich, Switzerland',
     guests: 2,
     children: 0,
@@ -157,11 +162,11 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     heroTitle: 'Comfortable Stay',
     tagline: 'PEACEFUL VIEW AND MODERN AMENITIES',
     category: 'standard',
-    image: g24,
-    heroImage: g24,
-    mainImage: g24,
-    secondaryImage: g25,
-    gallery: [g26, g27],
+    image: g27,
+    heroImage: g27,
+    mainImage: g27,
+    secondaryImage: g1,
+    gallery: [g24, g25],
     locationLabel: 'Zurich, Switzerland',
     guests: 2,
     children: 0,
@@ -190,11 +195,11 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     heroTitle: 'Comfortable Stay',
     tagline: 'SLEEK DESIGN FOR THE MODERN TRAVELLER',
     category: 'standard',
-    image: g28,
-    heroImage: g28,
-    mainImage: g28,
-    secondaryImage: g29,
-    gallery: [g30, g31],
+    image: g37,
+    heroImage: g37,
+    mainImage: g37,
+    secondaryImage: g38,
+    gallery: [g28, g29],
     locationLabel: 'Zurich, Switzerland',
     guests: 2,
     children: 0,
@@ -223,11 +228,11 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     heroTitle: 'Comfortable Stay',
     tagline: 'COMPACT COMFORT AT A GREAT VALUE',
     category: 'standard',
-    image: g1,
-    heroImage: g1,
-    mainImage: g1,
-    secondaryImage: g3,
-    gallery: [g4, g7],
+    image: g41,
+    heroImage: g41,
+    mainImage: g41,
+    secondaryImage: g42,
+    gallery: [g43, g45],
     locationLabel: 'Zurich, Switzerland',
     guests: 2,
     children: 1,
@@ -256,11 +261,11 @@ export const ALL_ROOM_DETAILS: RoomDetailTemplate[] = [
     heroTitle: 'Comfortable Stay',
     tagline: 'NATURAL LIGHT AND COMFY BEDDING',
     category: 'standard',
-    image: g24,
-    heroImage: g24,
-    mainImage: g24,
-    secondaryImage: g25,
-    gallery: [g26, g27],
+    image: g1,
+    heroImage: g1,
+    mainImage: g1,
+    secondaryImage: g3,
+    gallery: [g4, g7],
     locationLabel: 'Zurich, Switzerland',
     guests: 2,
     children: 0,

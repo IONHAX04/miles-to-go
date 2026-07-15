@@ -12,17 +12,15 @@ import {
 import { Link } from 'react-router-dom'
 import aboutHero from '../assets/properties/about-us-banner.jpg'
 import aboutStory from '../assets/properties/about-us-discover.jpg'
-import blog1 from '../assets/images/BLOG1.jpg'
-import blog2 from '../assets/images/BLOG2.jpg'
-import blog3 from '../assets/images/BLOG3.jpg'
 import { ALL_ROOM_DETAILS } from '../data/roomTemplates'
 import homeContact from '../assets/properties/Aboutus_enquiry.jpg'
-import rooms1 from '../assets/images/ROOMS1.jpg'
-import rooms2 from '../assets/images/ROOMS2.jpg'
-import rooms3 from '../assets/images/ROOMS3.jpg'
 import { getLittleHotelierUrl } from '../services/littleHotelierService'
 import { useBooking } from '../context/BookingContext'
 import './about-page.css'
+
+// Dynamically import all images inside src/assets/gallery
+const galleryModules = import.meta.glob('../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true })
+const galleryImages = Object.values(galleryModules).map((mod: any) => mod.default)
 
 const GALLERY_TRIPLE = [
   ALL_ROOM_DETAILS[0].image,
@@ -36,7 +34,14 @@ const FEATURED_ROOMS = ALL_ROOM_DETAILS.slice(0, 4).map((r) => ({
   title: r.title,
 }))
 
-const INSTAGRAM_GRID = [blog1, blog2, blog3, rooms1, rooms2, rooms3] as const
+const INSTAGRAM_GRID = [
+  galleryImages[0],  // Index 1 (Loft bed room)
+  galleryImages[15], // Index 16 (Green runner double bed)
+  galleryImages[26], // Index 27 (Loft bed with wooden stairs)
+  galleryImages[36], // Index 37 (Single bed with plants)
+  galleryImages[40], // Index 41 (Double bed with leaf picture)
+  galleryImages[27], // Index 28 (Bathroom with trees mural)
+] as const
 
 const STATS = [
   { value: '18+', label: 'Comfortable Rooms' },
