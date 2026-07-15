@@ -1,23 +1,18 @@
 import {
   ArrowRight,
-  Bath,
-  Bed,
   ChevronLeft,
   ChevronRight,
-  Ruler,
-  Star,
 } from 'lucide-react'
 import { useCallback, useState } from 'react'
-import home3 from '../assets/images/HOME_3.jpg'
-import home5 from '../assets/images/HOME_5.jpg'
-import home6 from '../assets/images/HOME_6.jpg'
-import home7 from '../assets/images/HOME_7.jpg'
+import home1 from '../assets/properties/Home1.jpg'
+import home2 from '../assets/properties/Home2.jpg'
+import home3 from '../assets/properties/Home3.jpg'
 import { getHomeRoomCards } from '../data/roomTemplates'
 import { getLittleHotelierUrl } from '../services/littleHotelierService'
 import { useBooking } from '../context/BookingContext'
 
 /** Header carousel: newest / wide shots (order 7 → 6 → 5 → …). */
-const CAROUSEL_IMAGES = [home7, home6, home5, home3] as const
+const CAROUSEL_IMAGES = [home1, home2, home3] as const
 
 const ROOMS = getHomeRoomCards()
 
@@ -74,36 +69,10 @@ export function RoomsSection() {
             <article key={room.slug} className="room-card" data-aos="fade-up">
               <div className="room-card__media">
                 <img src={room.image} alt="" className="room-card__img" />
-                <div className="room-card__rating">
-                  <Star size={13} strokeWidth={0} fill="currentColor" aria-hidden />
-                  4.9
-                </div>
               </div>
               <div className="room-card__body">
                 <h3 className="room-card__name">{room.title}</h3>
-                <p className="room-card__desc">{room.description}</p>
-                <ul className="room-card__specs">
-                  <li>
-                    <span className="room-card__spec-icon" aria-hidden="true">
-                      <Ruler size={14} strokeWidth={2} />
-                    </span>
-                    {room.sqm}
-                  </li>
-                  <li>
-                    <span className="room-card__spec-icon" aria-hidden="true">
-                      <Bed size={14} strokeWidth={2} />
-                    </span>
-                    {room.beds}
-                  </li>
-                  <li>
-                    <span className="room-card__spec-icon" aria-hidden="true">
-                      <Bath size={14} strokeWidth={2} />
-                    </span>
-                    {room.baths}
-                  </li>
-                </ul>
                 <div className="room-card__footer">
-                  <span className="room-card__price">CHF {room.price}/Per Night</span>
                   <button
                     type="button"
                     className="room-card__details"

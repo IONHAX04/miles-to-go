@@ -1,11 +1,7 @@
 import { BookingBar } from '../components/BookingBar'
 import { HeroShowcase } from '../components/HeroShowcase'
 import { RoomsSection } from '../components/RoomsSection'
-import { getLittleHotelierUrl } from '../services/littleHotelierService'
-import { useBooking } from '../context/BookingContext'
-
 export function HomePage() {
-  const { openBooking } = useBooking()
   return (
     <>
       <HeroShowcase />
@@ -20,21 +16,6 @@ export function HomePage() {
             rooms, essential amenities, and a convenient location for a hassle-free stay.
             Experience peace, comfort, and easy access to Zurich&apos;s attractions during your stay
             with us.
-          </p>
-          <p className="home-welcome-cta">
-            <button
-              type="button"
-              className="secondary-btn"
-              onClick={() => {
-                const url = getLittleHotelierUrl({
-                  checkIn: new Date().toISOString().split('T')[0],
-                  checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
-                })
-                openBooking(url)
-              }}
-            >
-              Explore Rooms
-            </button>
           </p>
         </div>
       </section>

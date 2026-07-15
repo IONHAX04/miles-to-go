@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import heroPool from '../assets/images/hero-pool.jpg'
+import heroPool from '../assets/properties/homeHero.jpeg'
 import { getLittleHotelierUrl } from '../services/littleHotelierService'
 import { useBooking } from '../context/BookingContext'
 
@@ -32,20 +32,6 @@ export function HeroShowcase() {
               }}
             >
               Book Now
-              <ArrowRight className="btn-arrow" size={18} strokeWidth={2.25} aria-hidden />
-            </button>
-            <button
-              type="button"
-              className="secondary-btn hero-cta-secondary"
-              onClick={() => {
-                const url = getLittleHotelierUrl({
-                  checkIn: new Date().toISOString().split('T')[0],
-                  checkOut: new Date(Date.now() + 86400000).toISOString().split('T')[0],
-                })
-                openBooking(url)
-              }}
-            >
-              Explore Rooms
               <ArrowRight className="btn-arrow" size={18} strokeWidth={2.25} aria-hidden />
             </button>
           </div>

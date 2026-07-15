@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react'
+import galleryBanner from '../assets/properties/gallery-banner.jpg'
 import './gallery-page.css'
 
 // Dynamically import all images inside src/assets/gallery
@@ -58,9 +59,7 @@ export function GalleryPage() {
     setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % imageUrls.length : null))
   }
 
-  // Use the first image in the gallery as the hero background if available,
-  // or a fallback if there are no images.
-  const heroBackground = imageUrls.length > 0 ? imageUrls[0] : ''
+  const heroBackground = galleryBanner
 
   return (
     <div className="gallery-page">

@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone, Send } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import contactHero from '../assets/images/CONTACT.jpg'
+import contactHero from '../assets/properties/contact-us-banner.jpg'
 import './contact-page.css'
 
 export function ContactPage() {
