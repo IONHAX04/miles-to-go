@@ -1342,10 +1342,19 @@ p {
     display: flex;
   }
 
-  .main-nav-link {
+  .main-nav .main-nav-link,
+  .main-nav button.main-nav-link {
     display: block;
+    width: 100%;
+    text-align: left;
     padding: 12px 14px;
     border-bottom: 1px solid #edf1f4;
+    border-radius: 0;
+    box-sizing: border-box;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
   }
 
   .main-nav .main-nav-link:last-of-type {
