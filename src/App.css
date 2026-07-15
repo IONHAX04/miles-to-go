@@ -1417,6 +1417,10 @@ button.footer-link-btn {
   transition: all 0.2s;
 }
 
+button.main-nav-link {
+  font-weight: 600;
+}
+
 button.main-nav-link:hover {
   color: var(--mtg-accent);
 }
