@@ -79,7 +79,7 @@ export function AboutPage() {
           </h2>
           <div className="about-intro__body">
             <p className="about-intro__copy">
-              Miles to Go welcomes you to Overglatt, Zurich—a comfortable, budget-friendly base
+              Miles to Go welcomes you to Oberglatt, Zurich—a comfortable, budget-friendly base
               for business and leisure. We focus on clean rooms, honest hospitality, and the
               little details that make travel easier after a long flight or a full day in the
               city.
@@ -371,7 +371,7 @@ export function AboutPage() {
               </div>
               <div>
                 <strong>Location</strong>
-                <span>Kaiserstuhlstrasse 79, 8154 Overglatt, Zürich</span>
+                <span>Kaiserstuhlstrasse 79, 8154 Oberglatt, Zürich</span>
               </div>
             </div>
           </div>

@@ -64,7 +64,7 @@ export function ContactPage() {
               <p>
                 Kaiserstuhlstrasse 79
                 <br />
-                8154 Overglatt, Zurich
+                8154 Oberglatt, Zurich
               </p>
             </article>
           </div>
@@ -76,7 +76,7 @@ export function ContactPage() {
                 <p>
                   Kaiserstuhlstrasse 79
                   <br />
-                  8154 Overglatt
+                  8154 Oberglatt
                   <br />
                   Zurich, Switzerland
                 </p>

@@ -11,7 +11,7 @@ export function HomePage() {
         <div className="container" data-aos="fade-up">
           <h2 className="heading-with-symbol">Welcome to Miles to Go</h2>
           <p>
-            Welcome to Miles to Go, a comfortable and budget-friendly hotel in Overglatt,
+            Welcome to Miles to Go, a comfortable and budget-friendly hotel in Oberglatt,
             Zurich. Ideal for both business and leisure travelers, we provide well-maintained
             rooms, essential amenities, and a convenient location for a hassle-free stay.
             Experience peace, comfort, and easy access to Zurich&apos;s attractions during your stay
